@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Winners - Mathy Banana</title>
+  <link rel="stylesheet" href="highscore.css">
+  <script src="app.js"></script>
+</head>
+<body class="winners-page">
+  <h1>WINNERS</h1>
+
+  <div class="winner-list">
+    <div class="winner-row">
+      <button class="name-btn">YOU</button>
+      <button class="score-btn" id="finalScore">0</button>
+    </div>
+    <div class="winner-row">
+      <button class="name-btn">FULL NAME</button>
+      <button class="score-btn">SCORE</button>
+    </div>
+    <div class="winner-row">
+      <button class="name-btn">FULL NAME</button>
+      <button class="score-btn">SCORE</button>
+    </div>
+  </div>
+
+  <div class="next-button-box">
+    <button onclick="goTo('profile.html')">Next</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = getUser();
+      document.getElementById("finalScore").textContent = getScore();
+      document.getElementById("fullName").textContent = user || "guest";
+    });
+  </script>
+</body>
+</html>

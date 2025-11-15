@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - Mathy Banana</title>
+  <link rel="stylesheet" href="profile.css">
+  <script src="app.js"></script>
+</head>
+<body class="profile-page">
+  <img src="image30.png" alt="Back" class="back-arrow" onclick="goTo('highscore.html')">
+
+  <div class="profile-box">
+    <img src="image 27.png" alt="User Icon" class="user-icon">
+    <div class="name-bar" id="fullName">FULL NAME</div>
+    <div class="score-bar">TOTAL SCORE: <span id="totalScore">0</span></div>
+    <div class="button-row">
+      <button class="logout-btn" onclick="resetAll(); goTo('start.html')">LOG OUT</button>
+      <button class="next-btn" onclick="goTo('goodbye.html')">NEXT</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = getUser();
+      document.getElementById("fullName").textContent = user || "guest";
+      document.getElementById("totalScore").textContent = getScore();
+    });
+  </script>
+</body>
+</html>
