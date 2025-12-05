@@ -1,0 +1,66 @@
+body.highscore-page {
+  margin: 0;
+  padding: 40px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: #fffbe6;
+  background-image: url('image\ 3.png'); /* fixed path */
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.winner-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.winner-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  width: 48%;
+}
+
+.score-btn {
+  background: #ffc0cb;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  width: 48%;
+}
+
+.next-button-box {
+  text-align: right;
+  margin-top: 30px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.next-button-box button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #e38949;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.next-button-box button:hover {
+  background: #e79e6a;
+}

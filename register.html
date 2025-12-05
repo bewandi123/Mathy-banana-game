@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Mathy Banana</title>
+  <link rel="stylesheet" href="auth.css">
+  <script src="app.js"></script>
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h1>Register</h1>
+    <input id="regName" type="text" placeholder="Name">
+    <input id="regEmail" type="email" placeholder="Email">
+    <input id="regPassword" type="password" placeholder="Password">
+    <input id="regConfirm" type="password" placeholder="Confirm Password">
+    <button id="registerBtn">Register</button>
+
+    <div id="regOtpArea" style="display:none; margin-top:15px;">
+      <input id="regOtpInput" type="text" placeholder="Enter OTP">
+      <button id="regVerifyBtn">Verify OTP</button>
+    </div>
+  </div>
+
+  <script>
+    // Store user email in sessionStorage for frontend tracking
+    function setUser(email) {
+      sessionStorage.setItem("user", email);
+    }
+
+    document.getElementById("registerBtn").addEventListener("click", () => {
+      const name = regName.value.trim();
+      const email = regEmail.value.trim();
+      const password = regPassword.value;
+      const confirm = regConfirm.value;
+
+      const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || !email || !password || !confirm) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      if (!strongPassword.test(password)) {
+        alert("Password must be at least 8 characters and include uppercase, lowercase, number, and symbol.");
+        return;
+      }
+
+      if (password !== confirm) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      const otp = Math.floor(100000 + Math.random() * 900000);
+      alert("Your registration OTP is: " + otp);
+      sessionStorage.setItem("regOtp", otp);
+      regOtpArea.style.display = "block";
+
+      sessionStorage.setItem("regName", name);
+      sessionStorage.setItem("regEmail", email);
+      sessionStorage.setItem("regPassword", password);
+    });
+
+    document.getElementById("regVerifyBtn").addEventListener("click", async () => {
+      const inputOtp = regOtpInput.value.trim();
+      const savedOtp = sessionStorage.getItem("regOtp");
+
+      if (inputOtp !== savedOtp) {
+        alert("Wrong OTP");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("name", sessionStorage.getItem("regName"));
+      formData.append("email", sessionStorage.getItem("regEmail"));
+      formData.append("password", sessionStorage.getItem("regPassword"));
+
+      const res = await fetch("register.php", { method: "POST", body: formData });
+      const text = await res.text();
+
+      if (text.trim() === "success") {
+        alert("Registration successful!");
+        setUser(sessionStorage.getItem("regEmail"));
+        window.location.href = "levels.html";
+      } else if (text.trim() === "already registered") {
+        alert("Already registered");
+      } else {
+        alert(text); // Show actual error message
+      }
+    });
+  </script>
+</body>
+</html>

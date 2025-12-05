@@ -1,0 +1,5 @@
+body.goodbye-page { margin:0; padding:0; font-family:'Comic Sans MS', cursive, sans-serif; background:#fffbe6; display:flex; justify-content:center; align-items:center; height:100vh; }
+.goodbye-box { background:#fff; border:10px solid #ffe135; padding:40px; border-radius:20px; text-align:center; box-shadow:0 0 20px rgba(0,0,0,0.2); }
+.banana-img { max-width:300px; margin-bottom:30px; }
+.exit-btn { padding:12px 20px; font-size:1em; background:#ffe135; border:none; border-radius:8px; cursor:pointer; }
+.exit-btn:hover { background:#ffdd57; }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Mathy Banana</title>
+  <link rel="stylesheet" href="auth.css">
+  <script src="app.js"></script>
+  <script src="login.js" defer></script>
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h1>Sign in</h1>
+
+    <!-- Login form -->
+    <input id="loginEmail" type="email" placeholder="Email" autocomplete="username">
+    <input id="loginPassword" type="password" placeholder="Password" autocomplete="current-password">
+    <button id="loginBtn">SIGN IN</button>
+
+    <!-- OTP verification -->
+    <div id="otpArea" style="display:none; margin-top:15px;">
+      <input id="otpInput" type="text" placeholder="Enter OTP">
+      <button id="verifyBtn">Verify OTP</button>
+    </div>
+
+    <!-- Forgot password toggle -->
+    <p style="margin-top:15px;">
+      <a href="#" id="forgotLink">Forgot password?</a>
+    </p>
+
+    <!-- Embedded reset section -->
+    <div id="resetArea" style="display:none; margin-top:15px;">
+      <input id="resetEmail" type="email" placeholder="Enter your email">
+      <button id="resetSendBtn">Send OTP</button>
+
+      <div id="resetOtpBox" style="display:none; margin-top:10px;">
+        <input id="resetOtpInput" type="text" placeholder="Enter OTP">
+        <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password">
+        <button id="resetSubmitBtn">Reset Password</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

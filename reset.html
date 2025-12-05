@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reset Password - Mathy Banana</title>
+  <link rel="stylesheet" href="auth.css">
+  <script src="reset.js" defer></script>
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h1>Reset Password</h1>
+
+    <input id="resetEmail" type="email" placeholder="Enter your email">
+    <button id="resetBtn">Send OTP</button>
+
+    <div id="resetOtpArea" style="display:none; margin-top:15px;">
+      <input id="resetOtpInput" type="text" placeholder="Enter OTP">
+      <input id="newPassword" type="password" placeholder="New Password">
+      <button id="resetVerifyBtn">Reset Password</button>
+    </div>
+  </div>
+</body>
+</html>

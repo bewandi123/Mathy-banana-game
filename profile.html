@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - Mathy Banana</title>
+  <link rel="stylesheet" href="profile.css">
+  <script src="app.js"></script>
+  <script src="profile.js" defer></script>
+</head>
+<body class="profile-page">
+  <!-- Back arrow -->
+  <img src="image30.png" alt="Back" class="back-arrow" onclick="goTo('highscore.html')">
+
+  <!-- Profile box -->
+  <div class="profile-box">
+    <img src="image 27.png" alt="User Icon" class="user-icon">
+    <div class="name-bar" id="fullName">you</div>
+    <div class="score-bar">TOTAL SCORE: <span id="totalScore">0</span></div>
+    <div class="button-row">
+      <button class="logout-btn" onclick="logoutUser()">LOG OUT</button>
+    </div>
+  </div>
+</body>
+</html>

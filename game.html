@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Banana Game</title>
+  <link rel="stylesheet" href="game.css">
+  <script src="app.js"></script>
+</head>
+<body class="game-page">
+  <header>
+    <div class="score">Score: <span id="score">0</span></div>
+    <div class="timer">Time: <span id="time">45</span>s</div>
+  </header>
+
+  <h1>Banana Puzzle</h1>
+
+  <div class="puzzle-image">
+    <img id="bananaPuzzle" alt="Banana Puzzle">
+  </div>
+
+  <div class="answer-box">
+    <label for="userAnswer">Your Answer:</label>
+    <input type="number" id="userAnswer" placeholder="Enter value">
+    <button id="submitBtn" onclick="checkAnswer()">Submit</button>
+  </div>
+
+  <div class="button-row">
+    <button onclick="goBack()">Back</button>
+    <button onclick="goNext()">Next</button>
+  </div>
+
+  <p id="result"></p>
+
+  <!-- Modules must be served via http://localhost -->
+  <script type="module" src="game.js"></script>
+</body>
+</html>
