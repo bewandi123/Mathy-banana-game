@@ -1,0 +1,10 @@
+body.level-page {
+  margin:0; padding:0; font-family:'Comic Sans MS', cursive, sans-serif;
+  background-image:url('image\ 3.png'); background-size:cover; background-position:center;
+  height:100vh; display:flex; justify-content:center; align-items:center;
+}
+.level-container { display:flex; flex-direction:column; gap:20px; width:260px; }
+.level-btn { padding:15px; font-size:1.2em; font-weight:bold; border:none; border-radius:10px; color:#fff; cursor:pointer; }
+.level1 { background:#8B0000; }
+.level2 { background:#FFB6C1; color:#333; }
+.level3 { background:#800080; }

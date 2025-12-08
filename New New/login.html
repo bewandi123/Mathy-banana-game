@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Mathy Banana</title>
+  <link rel="stylesheet" href="auth.css">
+  <script src="app.js"></script>
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h1>Sign in</h1>
+    <input id="loginEmail" type="email" placeholder="Email">
+    <input id="loginPassword" type="password" placeholder="Password">
+    <button id="loginBtn">SIGN IN</button>
+
+    <div id="otpArea" style="display:none; margin-top:15px;">
+      <input id="otpInput" type="text" placeholder="Enter OTP">
+      <button id="verifyBtn">Verify OTP</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const email = loginEmail.value.trim();
+      const pass = loginPassword.value.trim();
+      
+      if (email && pass) {
+        const otp = Math.floor(100000 + Math.random() * 900000);
+        alert("Your OTP is: " + otp);
+        sessionStorage.setItem("otp", otp);
+        document.getElementById("otpArea").style.display = "block";
+      } else {
+        alert("Enter email and password");
+      }
+    });
+
+    document.getElementById("verifyBtn").addEventListener("click", () => {
+      const input = otpInput.value.trim();
+      if (input && input === sessionStorage.getItem("otp")) {
+        alert("Login successful!");
+        setUser(loginEmail.value.trim());
+        goTo("levels.html");
+      } else {
+        alert("Wrong OTP");
+      }
+    });
+  </script>
+</body>
+</html>

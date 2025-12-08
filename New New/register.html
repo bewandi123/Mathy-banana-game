@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Mathy Banana</title>
+  <link rel="stylesheet" href="auth.css">
+  <script src="app.js"></script>
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h1>Register</h1>
+    <input id="regName" type="text" placeholder="Name">
+    <input id="regEmail" type="email" placeholder="Email">
+    <input id="regPassword" type="password" placeholder="Password">
+    <input id="regConfirm" type="password" placeholder="Confirm Password">
+    <button id="registerBtn">Register</button>
+
+    <div id="regOtpArea" style="display:none; margin-top:15px;">
+      <input id="regOtpInput" type="text" placeholder="Enter OTP">
+      <button id="regVerifyBtn">Verify OTP</button>
+    </div>
+  </div>
+
+  <script>
+    registerBtn.addEventListener("click", () => {
+      if (regPassword.value && regPassword.value === regConfirm.value) {
+        const otp = Math.floor(100000 + Math.random() * 900000);
+        alert("Your registration OTP is: " + otp);
+        sessionStorage.setItem("regOtp", otp);
+        regOtpArea.style.display = "block";
+      } else {
+        alert("Passwords do not match");
+      }
+    });
+
+    regVerifyBtn.addEventListener("click", () => {
+      if (regOtpInput.value === sessionStorage.getItem("regOtp")) {
+        alert("Registration successful!");
+        setUser(regEmail.value.trim());
+        goTo("levels.html");
+      } else {
+        alert("Wrong OTP");
+      }
+    });
+  </script>
+</body>
+</html>
